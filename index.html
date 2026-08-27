@@ -19,8 +19,8 @@
         }
 
         body {
-            /* Sử dụng đúng bức ảnh lịch sử Quảng trường Ba Đình ngày 2/9/1945 */
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/77/Qu%E1%BA%A3ng_tr%C6%B0%E1%BB%9Dng_Ba_%C4%90%C3%ACnh_ng%C3%A0y_2_9_1945.jpg');
+            /* Dùng hình nền sắc nét thay thế trực tiếp, đảm bảo không bao giờ bị lỗi mất ảnh */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -31,23 +31,15 @@
             align-items: center;
         }
 
-        /* Lớp phủ màu tối vừa phải giúp ảnh nền lịch sử hiện rõ nhưng vẫn đọc được chữ */
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-
         .header-title {
             text-align: center;
-            margin: 25px 20px 15px;
-            text-shadow: 2px 4px 10px rgba(0,0,0,1);
+            margin: 30px 20px 20px;
+            text-shadow: 2px 4px 12px rgba(0,0,0,0.9);
         }
 
         .header-title h1 {
             font-family: 'Lora', serif;
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             color: var(--primary-gold);
             text-transform: uppercase;
             margin-bottom: 5px;
@@ -55,37 +47,37 @@
 
         .header-title p {
             font-family: 'Lora', serif;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-style: italic;
         }
 
-        /* Layout 2 cột song song */
+        /* Layout 2 cột rõ ràng, bắt mắt */
         .main-container {
             display: flex;
             flex-wrap: wrap;
             width: 100%;
             max-width: 1200px;
-            gap: 20px;
-            padding: 0 20px 30px;
+            gap: 25px;
+            padding: 0 20px 40px;
             justify-content: center;
         }
 
         .glass-panel {
-            background: rgba(15, 15, 15, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
             flex: 1;
-            min-width: 320px;
+            min-width: 330px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
 
         .panel-header {
-            background: rgba(218, 37, 29, 0.9);
+            background: rgba(218, 37, 29, 0.95);
             color: var(--primary-gold);
             padding: 15px;
             text-align: center;
@@ -97,7 +89,7 @@
 
         /* --- KHUNG CHAT AI --- */
         .chat-box {
-            height: 340px;
+            height: 350px;
             padding: 20px;
             overflow-y: auto;
             display: flex;
@@ -113,11 +105,11 @@
             font-size: 0.95rem;
         }
 
-        .bot-msg { background: rgba(0, 0, 0, 0.75); color: #fff; align-self: flex-start; border: 1px solid rgba(255,255,255,0.15); border-bottom-left-radius: 2px; }
+        .bot-msg { background: rgba(30, 30, 30, 0.9); color: #fff; align-self: flex-start; border: 1px solid rgba(255,255,255,0.2); border-bottom-left-radius: 2px; }
         .bot-msg strong { color: var(--primary-gold); }
         .user-msg { background: var(--primary-red); color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
 
-        .chat-input { display: flex; padding: 15px; background: rgba(0, 0, 0, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.15); }
+        .chat-input { display: flex; padding: 15px; background: rgba(0, 0, 0, 0.6); border-top: 1px solid rgba(255, 255, 255, 0.2); }
         .chat-input input { flex: 1; padding: 12px 15px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; border-radius: 25px; outline: none; }
         .chat-input input::placeholder { color: #ddd; }
         .chat-input input:focus { border-color: var(--primary-gold); background: rgba(255, 255, 255, 0.25); }
@@ -158,7 +150,6 @@
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
 
     <div class="header-title">
         <h1>2 Tháng 9 Năm 1945</h1>
