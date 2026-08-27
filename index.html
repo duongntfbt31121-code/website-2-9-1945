@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hào Khí 2/9/1945 - Rạng Rỡ Kỷ Nguyên Độc Lập</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Hào Khí 2/9/1945 - Kỷ Niệm Quốc Khánh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-red: #da251d;
@@ -19,56 +19,50 @@
         }
 
         body {
-            /* Ảnh nền chuẩn lịch sử Quảng trường Ba Đình ngày 2/9/1945 */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('https://upload.wikimedia.org/wikipedia/commons/7/77/Qu%E1%BA%A3ng_tr%C6%B0%E1%BB%9Dng_Ba_%C4%90%C3%ACnh_ng%C3%A0y_2_9_1945.jpg');
-            background-size: cover;
-            background-position: center top;
-            background-attachment: fixed;
+            background-color: #1a0505;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-bottom: 40px;
         }
 
-        .header-title {
-            text-align: center;
-            margin: 30px 20px 20px;
-            text-shadow: 2px 4px 12px rgba(0,0,0,0.9);
+        /* --- KHUNG CHỨA BANNER TUYỆT ĐẸP --- */
+        .banner-container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
-        .header-title h1 {
-            font-family: 'Lora', serif;
-            font-size: 2.8rem;
-            color: var(--primary-gold);
-            text-transform: uppercase;
-            margin-bottom: 5px;
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 222, 29, 0.4);
+            display: block;
         }
 
-        .header-title p {
-            font-family: 'Lora', serif;
-            font-size: 1.15rem;
-            font-style: italic;
-        }
-
-        /* Layout 2 cột rõ ràng, bắt mắt */
+        /* Layout 2 cột cho phần Tương tác (Chat AI & Trắc nghiệm) */
         .main-container {
             display: flex;
             flex-wrap: wrap;
             width: 100%;
-            max-width: 1200px;
-            gap: 25px;
-            padding: 0 20px 40px;
+            max-width: 1300px;
+            gap: 20px;
+            padding: 0 15px;
             justify-content: center;
         }
 
         .glass-panel {
-            background: rgba(15, 15, 15, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             flex: 1;
             min-width: 330px;
             display: flex;
@@ -89,7 +83,7 @@
 
         /* --- KHUNG CHAT AI --- */
         .chat-box {
-            height: 350px;
+            height: 340px;
             padding: 20px;
             overflow-y: auto;
             display: flex;
@@ -105,11 +99,11 @@
             font-size: 0.95rem;
         }
 
-        .bot-msg { background: rgba(30, 30, 30, 0.9); color: #fff; align-self: flex-start; border: 1px solid rgba(255,255,255,0.2); border-bottom-left-radius: 2px; }
+        .bot-msg { background: rgba(40, 40, 40, 0.9); color: #fff; align-self: flex-start; border: 1px solid rgba(255,255,255,0.15); border-bottom-left-radius: 2px; }
         .bot-msg strong { color: var(--primary-gold); }
         .user-msg { background: var(--primary-red); color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
 
-        .chat-input { display: flex; padding: 15px; background: rgba(0, 0, 0, 0.6); border-top: 1px solid rgba(255, 255, 255, 0.2); }
+        .chat-input { display: flex; padding: 15px; background: rgba(0, 0, 0, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.15); }
         .chat-input input { flex: 1; padding: 12px 15px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; border-radius: 25px; outline: none; }
         .chat-input input::placeholder { color: #ddd; }
         .chat-input input:focus { border-color: var(--primary-gold); background: rgba(255, 255, 255, 0.25); }
@@ -121,9 +115,9 @@
         .quiz-question { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
         .quiz-options { display: flex; flex-direction: column; gap: 12px; }
         .quiz-btn {
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             padding: 12px 15px;
             border-radius: 10px;
             text-align: left;
@@ -131,7 +125,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .quiz-btn:hover { background: rgba(255, 255, 255, 0.25); transform: translateX(5px); }
+        .quiz-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateX(5px); }
         .quiz-btn.correct { background: #28a745 !important; border-color: #28a745; color: #fff; }
         .quiz-btn.wrong { background: #dc3545 !important; border-color: #dc3545; color: #fff; }
         
@@ -144,18 +138,18 @@
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
 
         @media (max-width: 768px) {
-            .header-title h1 { font-size: 2rem; }
             .main-container { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header-title">
-        <h1>2 Tháng 9 Năm 1945</h1>
-        <p>"Nước Việt Nam có quyền hưởng tự do và độc lập..."</p>
+    <!-- HIỂN THỊ ẢNH BANNER BẠN VỪA TẢI LÊN -->
+    <div class="banner-container">
+        <img src="banner-2-9.png" alt="Kỷ niệm Quốc khánh 2/9/1945">
     </div>
 
+    <!-- KHUNG TƯƠNG TÁC: CHAT AI & TRẮC NGHIỆM -->
     <div class="main-container">
         
         <!-- CỘT 1: CHAT VỚI AI -->
@@ -163,7 +157,7 @@
             <div class="panel-header">🤖 Hỏi Đáp Cùng Trợ Lý AI</div>
             <div class="chat-box" id="chatBox">
                 <div class="message bot-msg">
-                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy hỏi tôi về khoảnh khắc lịch sử tại Quảng trường Ba Đình ngày 2/9/1945 nhé!
+                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy hỏi tôi bất kỳ điều gì về mốc son lịch sử 2/9/1945 nhé!
                 </div>
             </div>
             <div class="chat-input">
