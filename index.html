@@ -19,10 +19,10 @@
         }
 
         body {
-            /* Đặt ảnh nền rõ ràng, không bị gradient che khuất hoàn toàn */
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/77/Qu%E1%BA%A3ng_tr%C6%B0%E1%BB%9Dng_Ba_%C4%90%C3%ACnh_ng%C3%A0y_2_9_1945.jpg');
+            /* Sử dụng link ảnh thay thế trực tiếp và sắc nét */
+            background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920');
             background-size: cover;
-            background-position: center top;
+            background-position: center center;
             background-attachment: fixed;
             color: #ffffff;
             min-height: 100vh;
@@ -31,17 +31,17 @@
             align-items: center;
         }
 
-        /* Lớp phủ làm tối nhẹ ảnh nền để chữ nổi bật lên nhưng vẫn thấy rõ ảnh */
+        /* Lớp phủ màu tối nhẹ để làm nổi bật khung nội dung chat & trắc nghiệm */
         .overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.55);
             z-index: -1;
         }
 
         .header-title {
             text-align: center;
-            margin: 40px 20px 30px;
+            margin: 30px 20px 20px;
             text-shadow: 2px 4px 10px rgba(0,0,0,1);
         }
 
@@ -50,16 +50,16 @@
             font-size: 2.8rem;
             color: var(--primary-gold);
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .header-title p {
             font-family: 'Lora', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-style: italic;
         }
 
-        /* Layout 2 cột */
+        /* Layout 2 cột rõ ràng */
         .main-container {
             display: flex;
             flex-wrap: wrap;
@@ -70,14 +70,13 @@
             justify-content: center;
         }
 
-        /* Khung chung cho 2 bên (Glassmorphism) */
         .glass-panel {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(15, 15, 15, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             flex: 1;
             min-width: 320px;
             display: flex;
@@ -86,7 +85,7 @@
         }
 
         .panel-header {
-            background: rgba(218, 37, 29, 0.85);
+            background: rgba(218, 37, 29, 0.9);
             color: var(--primary-gold);
             padding: 15px;
             text-align: center;
@@ -96,7 +95,7 @@
             border-bottom: 2px solid var(--primary-gold);
         }
 
-        /* --- CSS CHO KHUNG CHAT AI --- */
+        /* --- KHUNG CHAT AI --- */
         .chat-box {
             height: 350px;
             padding: 20px;
@@ -114,23 +113,23 @@
             font-size: 0.95rem;
         }
 
-        .bot-msg { background: rgba(0, 0, 0, 0.7); color: #fff; align-self: flex-start; border: 1px solid rgba(255,255,255,0.1); border-bottom-left-radius: 2px; }
+        .bot-msg { background: rgba(0, 0, 0, 0.75); color: #fff; align-self: flex-start; border: 1px solid rgba(255,255,255,0.15); border-bottom-left-radius: 2px; }
         .bot-msg strong { color: var(--primary-gold); }
         .user-msg { background: var(--primary-red); color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
 
-        .chat-input { display: flex; padding: 15px; background: rgba(0, 0, 0, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.1); }
-        .chat-input input { flex: 1; padding: 12px 15px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; border-radius: 25px; outline: none; }
-        .chat-input input::placeholder { color: #ccc; }
-        .chat-input input:focus { border-color: var(--primary-gold); background: rgba(255, 255, 255, 0.2); }
+        .chat-input { display: flex; padding: 15px; background: rgba(0, 0, 0, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.15); }
+        .chat-input input { flex: 1; padding: 12px 15px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; border-radius: 25px; outline: none; }
+        .chat-input input::placeholder { color: #ddd; }
+        .chat-input input:focus { border-color: var(--primary-gold); background: rgba(255, 255, 255, 0.25); }
         .chat-input button { background: var(--primary-gold); color: #000; border: none; padding: 0 25px; margin-left: 10px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .chat-input button:hover { background: #fff; }
 
-        /* --- CSS CHO KHUNG TRẮC NGHIỆM --- */
+        /* --- KHUNG TRẮC NGHIỆM --- */
         .quiz-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
         .quiz-question { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
         .quiz-options { display: flex; flex-direction: column; gap: 12px; }
         .quiz-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 12px 15px;
@@ -140,7 +139,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .quiz-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateX(5px); }
+        .quiz-btn:hover { background: rgba(255, 255, 255, 0.25); transform: translateX(5px); }
         .quiz-btn.correct { background: #28a745 !important; border-color: #28a745; color: #fff; }
         .quiz-btn.wrong { background: #dc3545 !important; border-color: #dc3545; color: #fff; }
         
@@ -149,9 +148,7 @@
         .next-btn { background: var(--primary-gold); color: #000; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; display: none; }
         .next-btn:hover { background: #fff; }
 
-        /* Tùy chỉnh thanh cuộn */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
 
         @media (max-width: 768px) {
@@ -175,7 +172,7 @@
             <div class="panel-header">🤖 Hỏi Đáp Cùng Trợ Lý AI</div>
             <div class="chat-box" id="chatBox">
                 <div class="message bot-msg">
-                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy đặt bất kỳ câu hỏi nào về sự kiện lịch sử mùng 2 tháng 9 năm 1945 nhé!
+                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy đặt câu hỏi về ngày 2/9/1945 nhé!
                 </div>
             </div>
             <div class="chat-input">
@@ -189,9 +186,7 @@
             <div class="panel-header">🎯 Thử Tài Kiến Thức</div>
             <div class="quiz-content">
                 <div class="quiz-question" id="questionText">Đang tải câu hỏi...</div>
-                <div class="quiz-options" id="optionsContainer">
-                    <!-- Nút đáp án sẽ được tạo bằng Javascript -->
-                </div>
+                <div class="quiz-options" id="optionsContainer"></div>
                 <div class="quiz-footer">
                     <div class="quiz-score" id="scoreText">Câu: 1/5</div>
                     <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Câu Tiếp Theo ➔</button>
@@ -202,7 +197,6 @@
     </div>
 
     <script>
-        // ================= XỬ LÝ CHAT AI =================
         async function sendAIRequest() {
             const inputField = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
@@ -249,7 +243,6 @@
             return msgDiv;
         }
 
-        // ================= XỬ LÝ TRẮC NGHIỆM =================
         const quizData = [
             {
                 question: "Bản Tuyên ngôn Độc lập được Chủ tịch Hồ Chí Minh đọc vào khoảng thời gian nào trong ngày 2/9/1945?",
@@ -303,7 +296,6 @@
             const correctIndex = quizData[currentQuestion].correct;
             const allBtns = document.querySelectorAll('.quiz-btn');
             
-            // Vô hiệu hóa tất cả các nút
             allBtns.forEach(btn => btn.style.pointerEvents = 'none');
 
             if (selectedIndex === correctIndex) {
@@ -311,10 +303,9 @@
                 score++;
             } else {
                 btnElement.classList.add('wrong');
-                allBtns[correctIndex].classList.add('correct'); // Hiện đáp án đúng
+                allBtns[correctIndex].classList.add('correct');
             }
 
-            // Hiện nút "Câu tiếp theo"
             document.getElementById('nextBtn').style.display = 'block';
             
             if (currentQuestion === quizData.length - 1) {
@@ -327,11 +318,10 @@
             if (currentQuestion < quizData.length) {
                 loadQuestion();
             } else {
-                // Kết thúc game
                 document.getElementById('questionText').innerText = "🎉 Chúc mừng bạn đã hoàn thành phần thử tài!";
                 document.getElementById('optionsContainer').innerHTML = `
-                    <div style="text-align: center; font-size: 1.2rem; padding: 20px;">
-                        Bạn đã trả lời đúng <strong style="color:var(--primary-gold); font-size: 1.5rem;">${score}/${quizData.length}</strong> câu hỏi. <br><br>
+                    <div style="text-align: center; font-size: 1.1rem; padding: 15px;">
+                        Bạn đã trả lời đúng <strong style="color:var(--primary-gold); font-size: 1.4rem;">${score}/${quizData.length}</strong> câu hỏi. <br><br>
                         Tinh thần yêu nước và am hiểu lịch sử của bạn rất đáng tự hào! 🇻🇳
                     </div>
                 `;
@@ -340,7 +330,6 @@
             }
         }
 
-        // Tải câu hỏi đầu tiên khi web mở lên
         window.onload = loadQuestion;
     </script>
 </body>
