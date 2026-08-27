@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2/9/1945 - Rạng Rỡ Mùa Thu Độc Lập</title>
+    <style>
+        :root {
+            --primary-red: #da251d;
+            --gold-yellow: #ffde1d;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #f5f5f5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--text-light); line-height: 1.6; }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000') center/cover;
+            height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 5px solid var(--gold-yellow);
+        }
+
+        header h1 { color: var(--gold-yellow); font-size: 2.5rem; margin-bottom: 15px; text-transform: uppercase; }
+        header p { font-size: 1.1rem; max-width: 700px; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .section-title { color: var(--gold-yellow); border-bottom: 2px solid var(--primary-red); padding-bottom: 10px; margin-bottom: 25px; text-transform: uppercase; }
+
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .card { background: var(--card-bg); padding: 20px; border-radius: 8px; border-top: 3px solid var(--gold-yellow); }
+        .card h3 { color: var(--gold-yellow); margin-bottom: 10px; }
+
+        /* Chat Widget */
+        .chat-container {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        .chat-header { background: var(--primary-red); color: var(--gold-yellow); padding: 12px 20px; font-weight: bold; }
+        .chat-box { height: 320px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .message { padding: 10px 14px; border-radius: 8px; max-width: 80%; word-wrap: break-word; }
+        .bot-msg { background: #2a2a2a; color: #fff; align-self: flex-start; }
+        .user-msg { background: var(--primary-red); color: #fff; align-self: flex-end; }
+        .chat-input { display: flex; border-top: 1px solid #333; }
+        .chat-input input { flex: 1; padding: 12px; background: #121212; border: none; color: #fff; outline: none; }
+        .chat-input button { background: var(--gold-yellow); border: none; padding: 12px 20px; font-weight: bold; cursor: pointer; }
+
+        footer { text-align: center; padding: 20px; background: #0a0a0a; color: #888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>2 THÁNG 9 NĂM 1945</h1>
+        <p>Mốc son chói lọi mở ra kỷ nguyên độc lập, tự do cho dân tộc Việt Nam. Hỏi đáp lịch sử trực tiếp cùng AI.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Ý Nghĩa Lịch Sử</h2>
+        <div class="grid-cards">
+            <div class="card">
+                <h3>Chấm Dứt Ách Thống Trị</h3>
+                <p>Đập tan ách thực dân Pháp hơn 80 năm và thực dân Phát xít Nhật, xóa bỏ hoàn toàn chế độ phong kiến.</p>
+            </div>
+            <div class="card">
+                <h3>Khai Sinh Nước Việt Nam</h3>
+                <p>Thành lập nước Việt Nam Dân chủ Cộng hòa – Nhà nước công nông đầu tiên tại Đông Nam Á.</p>
+            </div>
+            <div class="card">
+                <h3>Cổ Vũ Phong Trào</h3>
+                <p>Mở đầu cho sự sụp đổ của chủ nghĩa thực dân cũ, cổ vũ phong trào giải phóng dân tộc trên thế giới.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Hỏi Đáp Lịch Sử Cùng Google AI</h2>
+
+        <div class="chat-container">
+            <div class="chat-header">🤖 Trợ Lý AI Lịch Sử (Google Gemini)</div>
+            <div class="chat-box" id="chatBox">
+                <div class="message bot-msg">Xin chào! Bất kỳ ai truy cập đường link này đều có thể hỏi đáp trực tiếp với mình về ngày 2/9/1945. Hãy nhập câu hỏi bên dưới nhé!</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Nhập câu hỏi..." onkeypress="if(event.key==='Enter') sendAIRequest()">
+                <button onclick="sendAIRequest()">Gửi</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sản phẩm sáng tạo ứng dụng Google AI Studio - Lan tỏa lịch sử dân tộc cho thế hệ trẻ</p>
+    </footer>
+
+    <script>
+        async function sendAIRequest() {
+            const inputField = document.getElementById('userInput');
+            const chatBox = document.getElementById('chatBox');
+            const promptText = inputField.value.trim();
+
+            if (!promptText) return;
+
+            appendMessage(promptText, 'user-msg');
+            inputField.value = '';
+
+            const loadingDiv = appendMessage('AI đang suy nghĩ...', 'bot-msg');
+
+            try {
+                // Gọi tới Server Backend trung gian
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: promptText })
+                });
+
+                const data = await response.json();
+                
+                if (data.reply) {
+                    loadingDiv.innerText = data.reply;
+                } else {
+                    loadingDiv.innerText = data.error || "Có lỗi xảy ra khi gọi AI.";
+                }
+            } catch (error) {
+                loadingDiv.innerText = "Lỗi kết nối tới máy chủ.";
+            }
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function appendMessage(text, className) {
+            const chatBox = document.getElementById('chatBox');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${className}`;
+            msgDiv.innerText = text;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            return msgDiv;
+        }
+    </script>
+</body>
+</html>
