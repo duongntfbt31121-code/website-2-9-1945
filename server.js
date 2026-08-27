@@ -22,8 +22,8 @@ app.post('/api/chat', async (req, res) => {
     const systemContext = "Bạn là trợ lý AI lịch sử Việt Nam dành cho thế hệ trẻ. Hãy trả lời hào hùng, ngắn gọn và chính xác về sự kiện ngày 2/9/1945 và Tuyên ngôn Độc lập. Câu hỏi: ";
 
     try {
-        // Cập nhật endpoint chính thức v1 với model gemini-2.5-flash
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY.trim()}`, {
+        // Dùng model gemini-2.0-flash chuẩn nhất của Google AI Studio
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY.trim()}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
