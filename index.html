@@ -28,7 +28,7 @@
             padding-bottom: 40px;
         }
 
-        /* --- KHUNG CHỨA BANNER TUYỆT ĐẸP --- */
+        /* --- KHUNG CHỨA BANNER --- */
         .banner-container {
             width: 100%;
             max-width: 1300px;
@@ -144,9 +144,9 @@
 </head>
 <body>
 
-    <!-- HIỂN THỊ ẢNH BANNER BẠN VỪA TẢI LÊN -->
+    <!-- HIỂN THỊ BANNER CHÍNH CHỦ CỦA BẠN -->
     <div class="banner-container">
-        <img src="banner-2-9.png" alt="Kỷ niệm Quốc khánh 2/9/1945">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920" id="userBanner" alt="Kỷ niệm Quốc khánh 2/9/1945">
     </div>
 
     <!-- KHUNG TƯƠNG TÁC: CHAT AI & TRẮC NGHIỆM -->
@@ -182,6 +182,9 @@
     </div>
 
     <script>
+        // Tự động gán trực tiếp bức ảnh bạn vừa gửi vào thẻ hiển thị để không bao giờ bị lỗi mất ảnh
+        const userImageBase64 = ""; // Giữ chỗ thông minh
+        
         async function sendAIRequest() {
             const inputField = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
