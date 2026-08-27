@@ -3,212 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hào Khí 2/9 - Rạng Rỡ Kỷ Nguyên Độc Lập</title>
-    <!-- Import Font chữ trang trọng từ Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Hào Khí 2/9/1945 - Ngày Độc Lập</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-red: #da251d; /* Màu cờ đỏ */
-            --primary-gold: #ffde1d; /* Màu sao vàng */
-            --dark-red: #8b0000;
-            --bg-color: #fcf9f2; /* Màu giấy mộc cổ điển */
-            --text-main: #333;
-            --card-bg: #fff;
+            --primary-red: #da251d;
+            --primary-gold: #ffde1d;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Lora', serif;
-        }
-
-        /* Hero Section - Phần đầu trang */
-        .hero {
-            position: relative;
-            height: 55vh;
-            min-height: 400px;
-            background: linear-gradient(to bottom, rgba(218, 37, 29, 0.85), rgba(139, 0, 0, 0.95)),
-                        url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920') center/cover fixed;
+            /* Ảnh nền lịch sử kết hợp hiệu ứng trời sáng (nắng vàng) và tối dần ở dưới để hiện rõ chữ */
+            background: 
+                radial-gradient(circle at 50% 10%, rgba(255, 222, 29, 0.25) 0%, transparent 60%),
+                linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%),
+                url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Qu%E1%BA%A3ng_tr%C6%B0%E1%BB%9Dng_Ba_%C4%90%C3%ACnh_ng%C3%A0y_2_9_1945.jpg/1280px-Qu%E1%BA%A3ng_tr%C6%B0%E1%BB%9Dng_Ba_%C4%90%C3%ACnh_ng%C3%A0y_2_9_1945.jpg') no-repeat center top;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            color: white;
+            justify-content: center;
             padding: 20px;
-            border-bottom: 8px solid var(--primary-gold);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .header-title {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header-title h1 {
+            font-family: 'Lora', serif;
+            font-size: 3rem;
             color: var(--primary-gold);
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
         }
 
-        .hero p {
+        .header-title p {
+            font-family: 'Lora', serif;
             font-size: 1.2rem;
-            max-width: 800px;
-            font-family: 'Lora', serif;
             font-style: italic;
-            opacity: 0.9;
+            text-shadow: 1px 2px 5px rgba(0,0,0,0.8);
         }
 
-        /* Khung chứa nội dung chính */
-        .container {
-            max-width: 1000px;
-            margin: -50px auto 50px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Thẻ thông tin lịch sử */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--primary-red);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(218, 37, 29, 0.15);
-            border-top-color: var(--primary-gold);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            color: var(--primary-red);
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        /* Khung Chat AI */
-        .chat-wrapper {
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        /* Giao diện Glassmorphism (Kính mờ) */
+        .chat-container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(15, 15, 15, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             overflow: hidden;
-            border: 1px solid rgba(218, 37, 29, 0.1);
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .chat-header {
-            background: var(--primary-red);
+        /* Khu vực câu hỏi gợi ý */
+        .suggestions {
+            padding: 20px 20px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .suggestion-btn {
+            background: rgba(255, 222, 29, 0.15);
             color: var(--primary-gold);
-            padding: 20px;
-            text-align: center;
-            font-family: 'Lora', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border: 1px solid rgba(255, 222, 29, 0.4);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .suggestion-btn:hover {
+            background: var(--primary-gold);
+            color: #000;
+            transform: scale(1.05);
         }
 
         .chat-box {
-            height: 450px;
+            height: 40vh;
+            min-height: 350px;
             padding: 25px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            background-color: #fafafa;
         }
 
         .message {
-            padding: 14px 20px;
-            border-radius: 20px;
-            max-width: 75%;
-            font-size: 0.95rem;
+            padding: 15px 20px;
+            border-radius: 15px;
+            max-width: 80%;
             line-height: 1.6;
+            font-size: 1rem;
             animation: fadeIn 0.4s ease-out;
-            word-wrap: break-word;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .bot-msg {
-            background: #fff;
-            color: var(--text-main);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
             align-self: flex-start;
-            border: 1px solid #eaeaea;
-            border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-bottom-left-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .bot-msg strong {
+            color: var(--primary-gold);
         }
 
         .user-msg {
-            background: var(--primary-red);
+            background: rgba(218, 37, 29, 0.85);
             color: #fff;
             align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            box-shadow: 0 2px 8px rgba(218, 37, 29, 0.3);
+            border-bottom-right-radius: 5px;
+            box-shadow: 0 4px 15px rgba(218, 37, 29, 0.3);
         }
 
         .chat-input {
             display: flex;
             padding: 20px;
-            background: #fff;
-            border-top: 1px solid #f0f0f0;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .chat-input input {
             flex: 1;
-            padding: 15px 25px;
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
             border-radius: 30px;
             font-size: 1rem;
             outline: none;
-            transition: border 0.3s;
-            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+
+        .chat-input input::placeholder {
+            color: rgba(255,255,255,0.5);
         }
 
         .chat-input input:focus {
-            border-color: var(--primary-red);
-            background: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-gold);
         }
 
         .chat-input button {
             background: var(--primary-gold);
-            color: var(--dark-red);
+            color: #000;
             border: none;
             padding: 0 30px;
             margin-left: 15px;
@@ -217,93 +178,67 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(255, 222, 29, 0.4);
         }
 
         .chat-input button:hover {
             background: #ffea00;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 222, 29, 0.6);
+            box-shadow: 0 5px 15px rgba(255, 222, 29, 0.5);
         }
 
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: var(--dark-red);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-top: 60px;
-        }
+        /* Scrollbar trong suốt */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-gold); }
 
-        footer span {
-            color: var(--primary-gold);
-            font-weight: bold;
-        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-        /* Tùy chỉnh thanh cuộn */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary-red); }
-
-        /* Responsive cho điện thoại */
         @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            .message { max-width: 90%; }
-            .chat-input { flex-direction: column; gap: 10px; }
+            .header-title h1 { font-size: 2rem; }
+            .message { max-width: 95%; }
+            .chat-input { flex-direction: column; gap: 10px; padding: 15px; }
             .chat-input button { padding: 15px; margin-left: 0; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
+    <div class="header-title">
         <h1>2 Tháng 9 Năm 1945</h1>
-        <p>"Nước Việt Nam có quyền hưởng tự do và độc lập, và sự thật đã thành một nước tự do, độc lập." - Chủ tịch Hồ Chí Minh</p>
-    </header>
+        <p>"Toàn thể dân tộc Việt Nam quyết đem tất cả tinh thần và lực lượng..."</p>
+    </div>
 
-    <div class="container">
-        <div class="grid-cards">
-            <div class="card">
-                <div class="card-icon">🇻🇳</div>
-                <h3>Kỷ Nguyên Độc Lập</h3>
-                <p>Đập tan ách thống trị của thực dân, phát xít và phong kiến, mở ra kỷ nguyên độc lập, tự do cho dân tộc.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">📜</div>
-                <h3>Tuyên Ngôn Lịch Sử</h3>
-                <p>Khẳng định quyền con người, quyền dân tộc thiêng liêng và bất khả xâm phạm trước toàn thế giới.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🌏</div>
-                <h3>Cổ Vũ Toàn Cầu</h3>
-                <p>Ngọn cờ đầu trong phong trào giải phóng dân tộc, truyền cảm hứng cho các nước thuộc địa trên toàn thế giới.</p>
-            </div>
+    <div class="chat-container">
+        <!-- Khung Gợi Ý Câu Hỏi Mới -->
+        <div class="suggestions">
+            <button class="suggestion-btn" onclick="askQuestion('Bác Hồ bắt đầu đọc bản Tuyên ngôn Độc lập lúc mấy giờ?')">Bác Hồ đọc Tuyên ngôn lúc mấy giờ?</button>
+            <button class="suggestion-btn" onclick="askQuestion('Không khí tại Quảng trường Ba Đình lúc đó như thế nào?')">Không khí Quảng trường Ba Đình?</button>
+            <button class="suggestion-btn" onclick="askQuestion('Câu nói nổi tiếng nhất của Bác Hồ khi đang đọc Tuyên ngôn là gì?')">Câu nói nổi tiếng ngoài kịch bản?</button>
+            <button class="suggestion-btn" onclick="askQuestion('Có bao nhiêu người tham dự lễ độc lập ngày hôm đó?')">Có bao nhiêu người tham dự?</button>
         </div>
 
-        <div class="chat-wrapper">
-            <div class="chat-header">
-                Hỏi Đáp Lịch Sử Cùng AI
+        <div class="chat-box" id="chatBox">
+            <div class="message bot-msg">
+                <strong>🇻🇳 Trợ lý Lịch sử:</strong> Chào bạn! Bức ảnh phía sau là khoảnh khắc hàng vạn đồng bào đang lắng nghe Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập. Bạn muốn tìm hiểu thêm chi tiết nào về ngày lịch sử trọng đại này?
             </div>
-            <div class="chat-box" id="chatBox">
-                <div class="message bot-msg">
-                    <strong>Trợ lý Lịch sử:</strong> Chào bạn! Bạn muốn tìm hiểu điều gì về sự kiện mùng 2 tháng 9 năm 1945, bản Tuyên ngôn Độc lập hay bối cảnh lịch sử lúc bấy giờ?
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="userInput" placeholder="Gõ câu hỏi của bạn vào đây..." onkeypress="if(event.key==='Enter') sendAIRequest()">
-                <button onclick="sendAIRequest()">Gửi</button>
-            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Nhập câu hỏi lịch sử của bạn..." onkeypress="if(event.key==='Enter') sendAIRequest()">
+            <button onclick="sendAIRequest()">Gửi</button>
         </div>
     </div>
 
-    <footer>
-        <p>Sản phẩm sáng tạo ứng dụng <span>Google AI Studio</span> - Lan tỏa niềm tự hào lịch sử dân tộc</p>
-    </footer>
-
     <script>
+        // Hàm giúp người dùng click vào câu gợi ý là tự động gửi
+        function askQuestion(question) {
+            document.getElementById('userInput').value = question;
+            sendAIRequest();
+        }
+
         async function sendAIRequest() {
             const inputField = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
@@ -311,14 +246,12 @@
 
             if (!promptText) return;
 
-            // In tin nhắn người dùng
             appendMessage(promptText, 'user-msg');
             inputField.value = '';
 
-            // Hiển thị trạng thái AI đang gõ
             const loadingDiv = appendMessage('...', 'bot-msg');
             loadingDiv.style.fontStyle = 'italic';
-            loadingDiv.style.color = '#888';
+            loadingDiv.style.opacity = '0.7';
 
             try {
                 const response = await fetch('/api/chat', {
@@ -329,20 +262,18 @@
 
                 const data = await response.json();
                 
-                // Khôi phục style bình thường
                 loadingDiv.style.fontStyle = 'normal';
-                loadingDiv.style.color = 'var(--text-main)';
+                loadingDiv.style.opacity = '1';
 
                 if (data.reply) {
-                    // Dùng innerHTML để hỗ trợ hiển thị danh sách, in đậm nếu AI trả về markdown cơ bản (có thể parse thêm nếu cần, nhưng text thuần cũng đã rất đẹp)
-                    loadingDiv.innerHTML = data.reply.replace(/\n/g, '<br>');
+                    loadingDiv.innerHTML = "<strong>🇻🇳 Trợ lý Lịch sử:</strong><br><br>" + data.reply.replace(/\n/g, '<br>');
                 } else {
                     loadingDiv.innerText = data.error || "Có lỗi xảy ra từ máy chủ.";
-                    loadingDiv.style.color = "var(--primary-red)";
+                    loadingDiv.style.color = "var(--primary-gold)";
                 }
             } catch (error) {
                 loadingDiv.innerText = "Lỗi kết nối đến máy chủ. Vui lòng thử lại sau.";
-                loadingDiv.style.color = "var(--primary-red)";
+                loadingDiv.style.color = "var(--primary-gold)";
             }
 
             chatBox.scrollTop = chatBox.scrollHeight;
