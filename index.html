@@ -19,8 +19,8 @@
         }
 
         body {
-            /* Sử dụng link ảnh thay thế trực tiếp và sắc nét */
-            background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920');
+            /* Sử dụng đúng bức ảnh lịch sử Quảng trường Ba Đình ngày 2/9/1945 */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/77/Qu%E1%BA%A3ng_tr%C6%B0%E1%BB%9Dng_Ba_%C4%90%C3%ACnh_ng%C3%A0y_2_9_1945.jpg');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -31,23 +31,23 @@
             align-items: center;
         }
 
-        /* Lớp phủ màu tối nhẹ để làm nổi bật khung nội dung chat & trắc nghiệm */
+        /* Lớp phủ màu tối vừa phải giúp ảnh nền lịch sử hiện rõ nhưng vẫn đọc được chữ */
         .overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.4);
             z-index: -1;
         }
 
         .header-title {
             text-align: center;
-            margin: 30px 20px 20px;
+            margin: 25px 20px 15px;
             text-shadow: 2px 4px 10px rgba(0,0,0,1);
         }
 
         .header-title h1 {
             font-family: 'Lora', serif;
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             color: var(--primary-gold);
             text-transform: uppercase;
             margin-bottom: 5px;
@@ -59,21 +59,21 @@
             font-style: italic;
         }
 
-        /* Layout 2 cột rõ ràng */
+        /* Layout 2 cột song song */
         .main-container {
             display: flex;
             flex-wrap: wrap;
             width: 100%;
             max-width: 1200px;
             gap: 20px;
-            padding: 0 20px 40px;
+            padding: 0 20px 30px;
             justify-content: center;
         }
 
         .glass-panel {
-            background: rgba(15, 15, 15, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
@@ -97,7 +97,7 @@
 
         /* --- KHUNG CHAT AI --- */
         .chat-box {
-            height: 350px;
+            height: 340px;
             padding: 20px;
             overflow-y: auto;
             display: flex;
@@ -172,7 +172,7 @@
             <div class="panel-header">🤖 Hỏi Đáp Cùng Trợ Lý AI</div>
             <div class="chat-box" id="chatBox">
                 <div class="message bot-msg">
-                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy đặt câu hỏi về ngày 2/9/1945 nhé!
+                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy hỏi tôi về khoảnh khắc lịch sử tại Quảng trường Ba Đình ngày 2/9/1945 nhé!
                 </div>
             </div>
             <div class="chat-input">
