@@ -1,0 +1,42 @@
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+app.post('/api/chat', async (req, res) => {
+    const { prompt } = req.body;
+
+    if (!GEMINI_API_KEY) {
+        return res.status(500).json({ error: 'Chưa cấu hình API Key trên Server.' });
+    }
+
+    const systemContext = "Bạn là một chuyên gia lịch sử Việt Nam dành cho thế hệ trẻ. Hãy trả lời ngắn gọn, hào hùng, chính xác và truyền cảm hứng về sự kiện ngày 2/9/1945 và Tuyên ngôn Độc lập. Câu hỏi: ";
+
+    try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: systemContext + prompt }] }]
+            })
+        });
+
+        const data = await response.json();
+        if (data.candidates && data.candidates[0].content.parts[0].text) {
+            res.json({ reply: data.candidates[0].content.parts[0].text });
+        } else {
+            res.status(500).json({ error: 'Không nhận được phản hồi từ AI.' });
+        }
+    } catch (err) {
+        res.status(500).json({ error: 'Lỗi kết nối tới AI Studio.' });
+    }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
