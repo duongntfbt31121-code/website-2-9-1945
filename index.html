@@ -28,7 +28,7 @@
             padding-bottom: 40px;
         }
 
-        /* --- KHUNG CHỨA BANNER --- */
+        /* --- KHUNG CHỨA BANNER TUYỆT ĐẸP --- */
         .banner-container {
             width: 100%;
             max-width: 1300px;
@@ -144,9 +144,9 @@
 </head>
 <body>
 
-    <!-- HIỂN THỊ BANNER CHÍNH CHỦ CỦA BẠN -->
+    <!-- HIỂN THỊ BANNER CHÍNH CHỦ CỦA BẠN (Dùng link trực tiếp không sợ lệch tên file) -->
     <div class="banner-container">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920" id="userBanner" alt="Kỷ niệm Quốc khánh 2/9/1945">
+        <img src="https://raw.githubusercontent.com/username/repo/main/banner-2-9.png" id="mainBanner" alt="Kỷ niệm Quốc khánh 2/9/1945">
     </div>
 
     <!-- KHUNG TƯƠNG TÁC: CHAT AI & TRẮC NGHIỆM -->
@@ -182,9 +182,10 @@
     </div>
 
     <script>
-        // Tự động gán trực tiếp bức ảnh bạn vừa gửi vào thẻ hiển thị để không bao giờ bị lỗi mất ảnh
-        const userImageBase64 = ""; // Giữ chỗ thông minh
-        
+        // Tự động thay đổi ảnh banner nếu bạn đặt tên file ở thư mục gốc là 'banner-2-9.png'
+        // (Nếu bạn upload file lên GitHub cùng thư mục, dùng trực tiếp tên file sẽ an toàn nhất)
+        document.getElementById('mainBanner').src = 'banner-2-9.png';
+
         async function sendAIRequest() {
             const inputField = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
