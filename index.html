@@ -25,46 +25,40 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 40px;
+            padding: 20px 0;
         }
 
-        /* --- KHUNG CHỨA BANNER --- */
-        .banner-container {
+        /* --- KHUNG CHỨA ẢNH INFOGRAPHIC HOÀNH TRÁNG --- */
+        .infographic-container {
             width: 100%;
             max-width: 1300px;
-            margin: 20px auto;
+            margin: 0 auto 25px auto;
             padding: 0 15px;
         }
 
-        .banner-container img {
+        .infographic-container img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
             border: 2px solid rgba(255, 222, 29, 0.4);
             display: block;
         }
 
-        /* Layout 2 cột cho phần Tương tác (Chat AI & Trắc nghiệm) */
-        .main-container {
-            display: flex;
-            flex-wrap: wrap;
+        /* --- KHUNG CHAT AI TƯƠNG TÁC BÊN DƯỚI --- */
+        .chat-section {
             width: 100%;
             max-width: 1300px;
-            gap: 20px;
             padding: 0 15px;
-            justify-content: center;
         }
 
         .glass-panel {
-            background: rgba(20, 20, 20, 0.85);
+            background: rgba(20, 20, 20, 0.9);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            flex: 1;
-            min-width: 330px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -81,9 +75,8 @@
             border-bottom: 2px solid var(--primary-gold);
         }
 
-        /* --- KHUNG CHAT AI --- */
         .chat-box {
-            height: 340px;
+            height: 350px;
             padding: 20px;
             overflow-y: auto;
             display: flex;
@@ -110,82 +103,35 @@
         .chat-input button { background: var(--primary-gold); color: #000; border: none; padding: 0 25px; margin-left: 10px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .chat-input button:hover { background: #fff; }
 
-        /* --- KHUNG TRẮC NGHIỆM --- */
-        .quiz-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
-        .quiz-question { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
-        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
-        .quiz-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 12px 15px;
-            border-radius: 10px;
-            text-align: left;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .quiz-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateX(5px); }
-        .quiz-btn.correct { background: #28a745 !important; border-color: #28a745; color: #fff; }
-        .quiz-btn.wrong { background: #dc3545 !important; border-color: #dc3545; color: #fff; }
-        
-        .quiz-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 20px; }
-        .quiz-score { font-weight: bold; color: var(--primary-gold); }
-        .next-btn { background: var(--primary-gold); color: #000; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; display: none; }
-        .next-btn:hover { background: #fff; }
-
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
-
-        @media (max-width: 768px) {
-            .main-container { flex-direction: column; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- HIỂN THỊ BANNER CHÍNH CHỦ TRỰC TIẾP -->
-    <div class="banner-container">
-        <!-- Sử dụng trực tiếp ảnh bạn vừa tải lên qua cơ chế mã hóa nội bộ -->
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" id="exactBanner" alt="Kỷ niệm Quốc khánh 2/9/1945">
+    <!-- HIỂN THỊ ẢNH INFOGRAPHIC VỪA GỬI -->
+    <div class="infographic-container">
+        <!-- Đường dẫn trực tiếp định danh file ảnh hiện tại của bạn -->
+        <img src="banner-2-9.png" onerror="this.src='image_c7c743.png'" alt="Kỷ niệm Quốc khánh 2/9/1945">
     </div>
 
-    <!-- KHUNG TƯƠNG TÁC: CHAT AI & TRẮC NGHIỆM -->
-    <div class="main-container">
-        
-        <!-- CỘT 1: CHAT VỚI AI -->
+    <!-- KHUNG HỎI ĐÁP CÙNG TRỢ LÝ AI -->
+    <div class="chat-section">
         <div class="glass-panel">
-            <div class="panel-header">🤖 Hỏi Đáp Cùng Trợ Lý AI</div>
+            <div class="panel-header">🤖 Hỏi Đáp Cùng Trợ Lý Lịch Sử AI</div>
             <div class="chat-box" id="chatBox">
                 <div class="message bot-msg">
-                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy hỏi tôi bất kỳ điều gì về mốc son lịch sử 2/9/1945 nhé!
+                    <strong>🇻🇳 Trợ lý AI:</strong> Chào bạn! Hãy hỏi tôi bất kỳ điều gì về mốc son lịch sử 2/9/1945 hoặc các nội dung có trong Infographic phía trên nhé!
                 </div>
             </div>
             <div class="chat-input">
-                <input type="text" id="userInput" placeholder="Nhập câu hỏi..." onkeypress="if(event.key==='Enter') sendAIRequest()">
+                <input type="text" id="userInput" placeholder="Nhập câu hỏi của bạn..." onkeypress="if(event.key==='Enter') sendAIRequest()">
                 <button onclick="sendAIRequest()">Gửi</button>
             </div>
         </div>
-
-        <!-- CỘT 2: TRẮC NGHIỆM LỊCH SỬ -->
-        <div class="glass-panel">
-            <div class="panel-header">🎯 Thử Tài Kiến Thức</div>
-            <div class="quiz-content">
-                <div class="quiz-question" id="questionText">Đang tải câu hỏi...</div>
-                <div class="quiz-options" id="optionsContainer"></div>
-                <div class="quiz-footer">
-                    <div class="quiz-score" id="scoreText">Câu: 1/5</div>
-                    <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Câu Tiếp Theo ➔</button>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <script>
-        // Tự động gán chính xác nguồn ảnh người dùng vừa cung cấp
-        document.getElementById('exactBanner').src = "image_c7c743.png";
-
         async function sendAIRequest() {
             const inputField = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
@@ -231,95 +177,6 @@
             chatBox.scrollTop = chatBox.scrollHeight;
             return msgDiv;
         }
-
-        const quizData = [
-            {
-                question: "Bản Tuyên ngôn Độc lập được Chủ tịch Hồ Chí Minh đọc vào khoảng thời gian nào trong ngày 2/9/1945?",
-                options: ["A. 8 giờ sáng", "B. 10 giờ sáng", "C. 14 giờ chiều (2h chiều)", "D. 16 giờ chiều (4h chiều)"],
-                correct: 2
-            },
-            {
-                question: "Trong lúc đọc Tuyên ngôn Độc lập, Bác Hồ đã dừng lại và hỏi đồng bào câu gì?",
-                options: ["A. Đồng bào có nghe rõ không?", "B. Tôi nói đồng bào nghe rõ không?", "C. Đồng bào có đồng ý không?", "D. Toàn quốc đồng bào chú ý!"],
-                correct: 1
-            },
-            {
-                question: "Sự kiện 2/9/1945 đánh dấu sự ra đời của nhà nước nào?",
-                options: ["A. Việt Nam Dân chủ Cộng hòa", "B. Cộng hòa Xã hội Chủ nghĩa Việt Nam", "C. Quốc gia Việt Nam", "D. Đế quốc Việt Nam"],
-                correct: 0
-            },
-            {
-                question: "Bản Tuyên ngôn Độc lập năm 1945 đã trích dẫn bản Tuyên ngôn Độc lập của quốc gia nào?",
-                options: ["A. Pháp và Nga", "B. Mỹ và Anh", "C. Mỹ và Pháp", "D. Trung Quốc và Pháp"],
-                correct: 2
-            },
-            {
-                question: "Có khoảng bao nhiêu người đã tập trung tại Quảng trường Ba Đình để tham dự Lễ Độc lập 2/9/1945?",
-                options: ["A. Khoảng 10 vạn người", "B. Khoảng 50 vạn người (Nửa triệu người)", "C. Khoảng 1 triệu người", "D. Khoảng 5 vạn người"],
-                correct: 1
-            }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-
-        function loadQuestion() {
-            const q = quizData[currentQuestion];
-            document.getElementById('questionText').innerText = `Câu ${currentQuestion + 1}: ${q.question}`;
-            document.getElementById('scoreText').innerText = `Câu: ${currentQuestion + 1}/${quizData.length}`;
-            
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = '';
-            document.getElementById('nextBtn').style.display = 'none';
-
-            q.options.forEach((opt, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'quiz-btn';
-                btn.innerText = opt;
-                btn.onclick = () => checkAnswer(index, btn);
-                optionsContainer.appendChild(btn);
-            });
-        }
-
-        function checkAnswer(selectedIndex, btnElement) {
-            const correctIndex = quizData[currentQuestion].correct;
-            const allBtns = document.querySelectorAll('.quiz-btn');
-            
-            allBtns.forEach(btn => btn.style.pointerEvents = 'none');
-
-            if (selectedIndex === correctIndex) {
-                btnElement.classList.add('correct');
-                score++;
-            } else {
-                btnElement.classList.add('wrong');
-                allBtns[correctIndex].classList.add('correct');
-            }
-
-            document.getElementById('nextBtn').style.display = 'block';
-            
-            if (currentQuestion === quizData.length - 1) {
-                document.getElementById('nextBtn').innerText = "Xem Kết Quả";
-            }
-        }
-
-        function nextQuestion() {
-            currentQuestion++;
-            if (currentQuestion < quizData.length) {
-                loadQuestion();
-            } else {
-                document.getElementById('questionText').innerText = "🎉 Chúc mừng bạn đã hoàn thành phần thử tài!";
-                document.getElementById('optionsContainer').innerHTML = `
-                    <div style="text-align: center; font-size: 1.1rem; padding: 15px;">
-                        Bạn đã trả lời đúng <strong style="color:var(--primary-gold); font-size: 1.4rem;">${score}/${quizData.length}</strong> câu hỏi. <br><br>
-                        Tinh thần yêu nước và am hiểu lịch sử của bạn rất đáng tự hào! 🇻🇳
-                    </div>
-                `;
-                document.getElementById('nextBtn').style.display = 'none';
-                document.getElementById('scoreText').innerText = "Hoàn thành!";
-            }
-        }
-
-        window.onload = loadQuestion;
     </script>
 </body>
 </html>
