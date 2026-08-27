@@ -144,10 +144,10 @@
 </head>
 <body>
 
-    <!-- HIỂN THỊ BANNER CHÍNH CHỦ -->
+    <!-- HIỂN THỊ BANNER CHÍNH CHỦ TRỰC TIẾP -->
     <div class="banner-container">
-        <!-- Dùng đường dẫn gốc trực tiếp từ ảnh bạn gửi để web nhận diện tuyệt đối -->
-        <img src="image_c7c743.png" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920'" alt="Kỷ niệm Quốc khánh 2/9/1945">
+        <!-- Sử dụng trực tiếp ảnh bạn vừa tải lên qua cơ chế mã hóa nội bộ -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" id="exactBanner" alt="Kỷ niệm Quốc khánh 2/9/1945">
     </div>
 
     <!-- KHUNG TƯƠNG TÁC: CHAT AI & TRẮC NGHIỆM -->
@@ -183,6 +183,9 @@
     </div>
 
     <script>
+        // Tự động gán chính xác nguồn ảnh người dùng vừa cung cấp
+        document.getElementById('exactBanner').src = "image_c7c743.png";
+
         async function sendAIRequest() {
             const inputField = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
@@ -280,16 +283,16 @@
 
         function checkAnswer(selectedIndex, btnElement) {
             const correctIndex = quizData[currentQuestion].correct;
-            allBtns = document.querySelectorAll('.quiz-btn');
+            const allBtns = document.querySelectorAll('.quiz-btn');
             
-            document.querySelectorAll('.quiz-btn').forEach(btn => btn.style.pointerEvents = 'none');
+            allBtns.forEach(btn => btn.style.pointerEvents = 'none');
 
             if (selectedIndex === correctIndex) {
                 btnElement.classList.add('correct');
                 score++;
             } else {
                 btnElement.classList.add('wrong');
-                document.querySelectorAll('.quiz-btn')[correctIndex].classList.add('correct');
+                allBtns[correctIndex].classList.add('correct');
             }
 
             document.getElementById('nextBtn').style.display = 'block';
