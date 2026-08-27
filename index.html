@@ -3,95 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2/9/1945 - Rạng Rỡ Mùa Thu Độc Lập</title>
+    <title>Hào Khí 2/9 - Rạng Rỡ Kỷ Nguyên Độc Lập</title>
+    <!-- Import Font chữ trang trọng từ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-red: #da251d;
-            --gold-yellow: #ffde1d;
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --text-light: #f5f5f5;
+            --primary-red: #da251d; /* Màu cờ đỏ */
+            --primary-gold: #ffde1d; /* Màu sao vàng */
+            --dark-red: #8b0000;
+            --bg-color: #fcf9f2; /* Màu giấy mộc cổ điển */
+            --text-main: #333;
+            --card-bg: #fff;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--dark-bg); color: var(--text-light); line-height: 1.6; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000') center/cover;
-            height: 50vh;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+
+        /* Hero Section - Phần đầu trang */
+        .hero {
+            position: relative;
+            height: 55vh;
+            min-height: 400px;
+            background: linear-gradient(to bottom, rgba(218, 37, 29, 0.85), rgba(139, 0, 0, 0.95)),
+                        url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920') center/cover fixed;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
-            border-bottom: 5px solid var(--gold-yellow);
+            color: white;
+            padding: 20px;
+            border-bottom: 8px solid var(--primary-gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        header h1 { color: var(--gold-yellow); font-size: 2.2rem; margin-bottom: 10px; text-transform: uppercase; }
-        header p { font-size: 1rem; max-width: 700px; }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+        }
 
-        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
-        .section-title { color: var(--gold-yellow); border-bottom: 2px solid var(--primary-red); padding-bottom: 8px; margin-bottom: 20px; text-transform: uppercase; }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            opacity: 0.9;
+        }
 
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-bottom: 30px; }
-        .card { background: var(--card-bg); padding: 18px; border-radius: 8px; border-top: 3px solid var(--gold-yellow); }
-        .card h3 { color: var(--gold-yellow); margin-bottom: 8px; }
+        /* Khung chứa nội dung chính */
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
 
-        .chat-container { background: var(--card-bg); border: 1px solid #333; border-radius: 8px; overflow: hidden; margin-bottom: 40px; }
-        .chat-header { background: var(--primary-red); color: var(--gold-yellow); padding: 12px 20px; font-weight: bold; }
-        .chat-box { height: 300px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        .message { padding: 8px 12px; border-radius: 8px; max-width: 80%; word-wrap: break-word; }
-        .bot-msg { background: #2a2a2a; color: #fff; align-self: flex-start; }
-        .user-msg { background: var(--primary-red); color: #fff; align-self: flex-end; }
-        .chat-input { display: flex; border-top: 1px solid #333; }
-        .chat-input input { flex: 1; padding: 12px; background: #121212; border: none; color: #fff; outline: none; }
-        .chat-input button { background: var(--gold-yellow); border: none; padding: 12px 20px; font-weight: bold; cursor: pointer; }
+        /* Thẻ thông tin lịch sử */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
 
-        footer { text-align: center; padding: 15px; background: #0a0a0a; color: #888; font-size: 0.85rem; }
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary-red);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(218, 37, 29, 0.15);
+            border-top-color: var(--primary-gold);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: var(--primary-red);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Khung Chat AI */
+        .chat-wrapper {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid rgba(218, 37, 29, 0.1);
+        }
+
+        .chat-header {
+            background: var(--primary-red);
+            color: var(--primary-gold);
+            padding: 20px;
+            text-align: center;
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chat-box {
+            height: 450px;
+            padding: 25px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #fafafa;
+        }
+
+        .message {
+            padding: 14px 20px;
+            border-radius: 20px;
+            max-width: 75%;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            animation: fadeIn 0.4s ease-out;
+            word-wrap: break-word;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bot-msg {
+            background: #fff;
+            color: var(--text-main);
+            align-self: flex-start;
+            border: 1px solid #eaeaea;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .user-msg {
+            background: var(--primary-red);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 2px 8px rgba(218, 37, 29, 0.3);
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 20px;
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .chat-input input:focus {
+            border-color: var(--primary-red);
+            background: #fff;
+        }
+
+        .chat-input button {
+            background: var(--primary-gold);
+            color: var(--dark-red);
+            border: none;
+            padding: 0 30px;
+            margin-left: 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(255, 222, 29, 0.4);
+        }
+
+        .chat-input button:hover {
+            background: #ffea00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 222, 29, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--dark-red);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        footer span {
+            color: var(--primary-gold);
+            font-weight: bold;
+        }
+
+        /* Tùy chỉnh thanh cuộn */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-red); }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .message { max-width: 90%; }
+            .chat-input { flex-direction: column; gap: 10px; }
+            .chat-input button { padding: 15px; margin-left: 0; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>2 THÁNG 9 NĂM 1945</h1>
-        <p>Mốc son chói lọi mở ra kỷ nguyên độc lập, tự do cho dân tộc Việt Nam. Hỏi đáp lịch sử trực tiếp cùng AI.</p>
+    <header class="hero">
+        <h1>2 Tháng 9 Năm 1945</h1>
+        <p>"Nước Việt Nam có quyền hưởng tự do và độc lập, và sự thật đã thành một nước tự do, độc lập." - Chủ tịch Hồ Chí Minh</p>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Ý Nghĩa Lịch Sử</h2>
         <div class="grid-cards">
             <div class="card">
-                <h3>Chấm Dứt Ách Thống Trị</h3>
-                <p>Đập tan ách thực dân Pháp hơn 80 năm và thực dân Phát xít Nhật, xóa bỏ hoàn toàn chế độ phong kiến.</p>
+                <div class="card-icon">🇻🇳</div>
+                <h3>Kỷ Nguyên Độc Lập</h3>
+                <p>Đập tan ách thống trị của thực dân, phát xít và phong kiến, mở ra kỷ nguyên độc lập, tự do cho dân tộc.</p>
             </div>
             <div class="card">
-                <h3>Khai Sinh Nước Việt Nam</h3>
-                <p>Thành lập nước Việt Nam Dân chủ Cộng hòa – Nhà nước công nông đầu tiên tại Đông Nam Á.</p>
+                <div class="card-icon">📜</div>
+                <h3>Tuyên Ngôn Lịch Sử</h3>
+                <p>Khẳng định quyền con người, quyền dân tộc thiêng liêng và bất khả xâm phạm trước toàn thế giới.</p>
             </div>
             <div class="card">
-                <h3>Cổ Vũ Phong Trào</h3>
-                <p>Mở đầu cho sự sụp đổ của chủ nghĩa thực dân cũ, cổ vũ phong trào giải phóng dân tộc trên thế giới.</p>
+                <div class="card-icon">🌏</div>
+                <h3>Cổ Vũ Toàn Cầu</h3>
+                <p>Ngọn cờ đầu trong phong trào giải phóng dân tộc, truyền cảm hứng cho các nước thuộc địa trên toàn thế giới.</p>
             </div>
         </div>
 
-        <h2 class="section-title">Hỏi Đáp Lịch Sử Cùng Google AI</h2>
-
-        <div class="chat-container">
-            <div class="chat-header">🤖 Trợ Lý AI Lịch Sử (Google Gemini)</div>
+        <div class="chat-wrapper">
+            <div class="chat-header">
+                Hỏi Đáp Lịch Sử Cùng AI
+            </div>
             <div class="chat-box" id="chatBox">
-                <div class="message bot-msg">Xin chào! Bạn có thể hỏi bất kỳ điều gì về sự kiện lịch sử 2/9/1945 nhé!</div>
+                <div class="message bot-msg">
+                    <strong>Trợ lý Lịch sử:</strong> Chào bạn! Bạn muốn tìm hiểu điều gì về sự kiện mùng 2 tháng 9 năm 1945, bản Tuyên ngôn Độc lập hay bối cảnh lịch sử lúc bấy giờ?
+                </div>
             </div>
             <div class="chat-input">
-                <input type="text" id="userInput" placeholder="Nhập câu hỏi..." onkeypress="if(event.key==='Enter') sendAIRequest()">
+                <input type="text" id="userInput" placeholder="Gõ câu hỏi của bạn vào đây..." onkeypress="if(event.key==='Enter') sendAIRequest()">
                 <button onclick="sendAIRequest()">Gửi</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>Sản phẩm sáng tạo ứng dụng Google AI Studio - Lan tỏa lịch sử dân tộc cho thế hệ trẻ</p>
+        <p>Sản phẩm sáng tạo ứng dụng <span>Google AI Studio</span> - Lan tỏa niềm tự hào lịch sử dân tộc</p>
     </footer>
 
     <script>
@@ -102,10 +311,14 @@
 
             if (!promptText) return;
 
+            // In tin nhắn người dùng
             appendMessage(promptText, 'user-msg');
             inputField.value = '';
 
-            const loadingDiv = appendMessage('AI đang suy nghĩ...', 'bot-msg');
+            // Hiển thị trạng thái AI đang gõ
+            const loadingDiv = appendMessage('...', 'bot-msg');
+            loadingDiv.style.fontStyle = 'italic';
+            loadingDiv.style.color = '#888';
 
             try {
                 const response = await fetch('/api/chat', {
@@ -115,13 +328,21 @@
                 });
 
                 const data = await response.json();
+                
+                // Khôi phục style bình thường
+                loadingDiv.style.fontStyle = 'normal';
+                loadingDiv.style.color = 'var(--text-main)';
+
                 if (data.reply) {
-                    loadingDiv.innerText = data.reply;
+                    // Dùng innerHTML để hỗ trợ hiển thị danh sách, in đậm nếu AI trả về markdown cơ bản (có thể parse thêm nếu cần, nhưng text thuần cũng đã rất đẹp)
+                    loadingDiv.innerHTML = data.reply.replace(/\n/g, '<br>');
                 } else {
-                    loadingDiv.innerText = data.error || "Có lỗi xảy ra.";
+                    loadingDiv.innerText = data.error || "Có lỗi xảy ra từ máy chủ.";
+                    loadingDiv.style.color = "var(--primary-red)";
                 }
             } catch (error) {
-                loadingDiv.innerText = "Lỗi kết nối máy chủ.";
+                loadingDiv.innerText = "Lỗi kết nối đến máy chủ. Vui lòng thử lại sau.";
+                loadingDiv.style.color = "var(--primary-red)";
             }
 
             chatBox.scrollTop = chatBox.scrollHeight;
