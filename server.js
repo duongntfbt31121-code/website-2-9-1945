@@ -6,7 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Phục vụ file giao diện ngay tại thư mục gốc
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -17,13 +16,13 @@ app.post('/api/chat', async (req, res) => {
     const { prompt } = req.body;
 
     if (!GEMINI_API_KEY) {
-        return res.status(500).json({ error: 'Chưa cấu hình API Key trên Server.' });
+        return res.status(500).json({ error: 'Chưa cấu hình GEMINI_API_KEY trên Render.' });
     }
 
-    const systemContext = "Bạn là một chuyên gia lịch sử Việt Nam dành cho thế hệ trẻ. Hãy trả lời ngắn gọn, hào hùng, chính xác và truyền cảm hứng về sự kiện ngày 2/9/1945 và Tuyên ngôn Độc lập. Câu hỏi: ";
+    const systemContext = "Bạn là trợ lý AI lịch sử Việt Nam dành cho thế hệ trẻ. Hãy trả lời hào hùng, ngắn gọn và chính xác về sự kiện ngày 2/9/1945 và Tuyên ngôn Độc lập. Câu hỏi: ";
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY.trim()}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -32,13 +31,16 @@ app.post('/api/chat', async (req, res) => {
         });
 
         const data = await response.json();
-        if (data.candidates && data.candidates[0].content.parts[0].text) {
+
+        if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
             res.json({ reply: data.candidates[0].content.parts[0].text });
+        } else if (data.error) {
+            res.status(500).json({ error: `Lỗi Gemini API: ${data.error.message}` });
         } else {
-            res.status(500).json({ error: 'Không nhận được phản hồi từ AI.' });
+            res.status(500).json({ error: 'Không nhận được phản hồi hợp lệ từ AI.' });
         }
     } catch (err) {
-        res.status(500).json({ error: 'Lỗi kết nối tới AI Studio.' });
+        res.status(500).json({ error: 'Lỗi kết nối máy chủ.' });
     }
 });
 
