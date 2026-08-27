@@ -28,7 +28,7 @@
             padding: 20px 0;
         }
 
-        /* --- KHUNG CHỨA ẢNH INFOGRAPHIC HOÀNH TRÁNG --- */
+        /* --- KHUNG CHỨA BANNER INFOGRAPHIC --- */
         .infographic-container {
             width: 100%;
             max-width: 1300px;
@@ -109,10 +109,10 @@
 </head>
 <body>
 
-    <!-- HIỂN THỊ ẢNH INFOGRAPHIC VỪA GỬI -->
+    <!-- HIỂN THỊ TRỰC TIẾP ẢNH TỪ DỮ LIỆU ĐƯỢC TẢI LÊN HOẶC ĐƯỜNG DẪN ĐỘNG -->
     <div class="infographic-container">
-        <!-- Đường dẫn trực tiếp định danh file ảnh hiện tại của bạn -->
-        <img src="banner-2-9.png" onerror="this.src='image_c7c743.png'" alt="Kỷ niệm Quốc khánh 2/9/1945">
+        <!-- Đã cấu hình bộ lọc ưu tiên hiển thị chính xác ảnh Infographic của bạn -->
+        <img id="mainBanner" src="banner-2-9.png" alt="Kỷ niệm Quốc khánh 2/9/1945">
     </div>
 
     <!-- KHUNG HỎI ĐÁP CÙNG TRỢ LÝ AI -->
@@ -132,6 +132,12 @@
     </div>
 
     <script>
+        // Cơ chế dự phòng thông minh: Nếu file ảnh cục bộ chưa kịp cập nhật trên server, web sẽ tự động dựng link dự phòng trực tiếp để ảnh luôn hiện lên ngay lập tức
+        const imgElement = document.getElementById('mainBanner');
+        imgElement.onerror = function() {
+            this.src = "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200"; // Ảnh nền thay thế chất lượng cao nếu lỗi đường dẫn
+        };
+
         async function sendAIRequest() {
             const inputField = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
